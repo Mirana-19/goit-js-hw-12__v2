@@ -7,17 +7,23 @@
     <title>Vanilla App Template</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
+
   <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
-
+    <header class="header">
+      <div class="container">
+        <form class="header__form form">
+          <input type="text" class="form__input" name="input" />
+          <button type="submit" class="form__button">Search</button>
+        </form>
+      </div>
+    </header>
     <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
+      <section class="photos">
+        <div class="container">
+          <section class="gallery"></sectio>
+        </div>
+      </section>
     </main>
-
-    <load src="./partials/footer.html" />
-
-    <script type="module" src="./main.js"></script>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>
