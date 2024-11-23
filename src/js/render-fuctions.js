@@ -78,5 +78,5 @@ export function renderMarkup(images) {
 }
 
 export function render(element, markup) {
-  element.innerHTML = markup;
+  element.insertAdjacentHTML('beforeend', markup);
 }
