@@ -12,7 +12,12 @@
     <header class="header">
       <div class="container">
         <form class="header__form form">
-          <input type="text" class="form__input" name="input" />
+          <input
+            type="text"
+            class="form__input"
+            name="input"
+            placeholder="Search images..."
+          />
           <button type="submit" class="button form__button">Search</button>
         </form>
       </div>
@@ -21,6 +26,7 @@
       <section class="photos">
         <div class="container">
           <section class="gallery"></section>
+          <p class="loader">Loading images, please wait...</p>
           <button class="button button__load-more" type="button">
             Load more
           </button>

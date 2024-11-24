@@ -1,7 +1,13 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 .gallery {
   --number-of-cards: 1;
   --gap: 20px;
-
+  padding: 32px 0;
   display: flex;
   flex-direction: column;
   gap: var(--gap);
@@ -10,7 +16,6 @@
 }
 
 .card {
-  box-sizing: border-box;
   width: 100%;
   height: 300px;
   overflow: hidden;
@@ -82,4 +87,32 @@
 
 .button__load-more {
   display: none;
+}
+
+.form__input {
+  width: 272px;
+  margin-right: 8px;
+  padding: 8px 16px;
+
+  border-radius: 4px;
+  color: #808080;
+  border: 1px solid #808080;
+}
+
+.header__form {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  background-color: #4e75ff;
+  color: #fff;
+}
+
+.button__load-more {
+  margin: 0 auto;
 }

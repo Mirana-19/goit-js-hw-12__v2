@@ -1,5 +1,5 @@
 .header {
-  padding: 20px 0;
+  padding-top: 36px;
 }
 .nav {
   display: flex;
@@ -41,4 +41,13 @@
 }
 .nav-link.active::after {
   background: #747bff;
+}
+
+.loader {
+  text-align: center;
+  display: none;
+}
+
+.loader.visible {
+  display: block;
 }
