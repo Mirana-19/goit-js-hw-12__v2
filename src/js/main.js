@@ -14,6 +14,9 @@ const galleryLB = new SimpleLightbox('.gallery a');
 
 let page = 1;
 let query = '';
+const limit = 15;
+let totalHits = 0;
+let totalPages = 0;
 
 form.addEventListener('submit', handleSearch);
 loadMoreBtn.addEventListener('click', loadMoreImages);
@@ -29,14 +32,24 @@ function handleSearch(e) {
     });
   }
 
-  getData(query)
-    .then(res => res.data.hits)
-    .then(images => {
+  getData(query).then(res => {
+    const images = res.data.hits;
+    totalHits = res.data.totalHits;
+    totalPages = Math.ceil(totalHits / limit);
+
+    if (totalHits === 0) {
+      iziToast.error({
+        position: 'topRight',
+        message: 'There were no messages found for your query!',
+      });
+    } else {
+      toggleLoadMore(page, totalPages);
       gallery.innerHTML = '';
       const markup = renderMarkup(images);
       render(gallery, markup);
       galleryLB.refresh();
-    });
+    }
+  });
 
   e.target.reset();
 }
@@ -50,7 +63,21 @@ function loadMoreImages() {
       const markup = renderMarkup(images);
       render(gallery, markup);
       galleryLB.refresh();
+
+      toggleLoadMore(page, totalPages);
     });
 }
 
+function toggleLoadMore(page, totalPages) {
+  if (page === totalPages) {
+    loadMoreBtn.style.display = 'none';
+    iziToast.warning({
+      position: 'topRight',
+      message: 'You reached the end of collection!',
+    });
+  }
 
+  if (page < totalPages) {
+    loadMoreBtn.style.display = 'block';
+  }
+}
