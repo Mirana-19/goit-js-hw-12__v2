@@ -42,12 +42,3 @@
 .nav-link.active::after {
   background: #747bff;
 }
-
-.loader {
-  text-align: center;
-  display: none;
-}
-
-.loader.visible {
-  display: block;
-}

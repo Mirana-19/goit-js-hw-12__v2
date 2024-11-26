@@ -24,19 +24,20 @@ loadMoreBtn.addEventListener('click', loadMoreImages);
 
 function handleSearch(e) {
   e.preventDefault();
-  toggleLoader();
+
+  gallery.innerHTML = '';
 
   query = e.target.elements.input.value.trim();
   page = 1;
 
   if (!query) {
-    toggleLoader();
-
     return iziToast.error({
       position: 'topRight',
       message: 'Please, type a query!',
     });
   }
+
+  toggleLoader();
 
   getData(query)
     .then(res => {
@@ -57,13 +58,19 @@ function handleSearch(e) {
         galleryLB.refresh();
       }
     })
-    .finally(toggleLoader());
+    .finally(() => {
+      setTimeout(() => {
+        toggleLoader();
+      }, 750);
+    });
 
   e.target.reset();
 }
 
 function loadMoreImages() {
   page += 1;
+
+  toggleLoader();
 
   getData(query, page)
     .then(res => res.data.hits)
@@ -73,7 +80,8 @@ function loadMoreImages() {
       galleryLB.refresh();
 
       toggleLoadMore(page, totalPages);
-    });
+    })
+    .finally(() => toggleLoader());
 }
 
 function toggleLoadMore(page, totalPages) {

@@ -23,15 +23,19 @@
       </div>
     </header>
     <main>
-      <section class="photos">
+      <section class="photos" style="max-width: 100vw">
         <div class="container">
           <section class="gallery"></section>
-          <p class="loader">Loading images, please wait...</p>
+
           <button class="button button__load-more" type="button">
             Load more
           </button>
         </div>
       </section>
+
+      <div class="loader">
+        <span class="loader__element"></span>
+      </div>
     </main>
     <script type="module" src="./js/main.js"></script>
   </body>

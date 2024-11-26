@@ -11,8 +11,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--gap);
-
-  border: 1px solid red;
 }
 
 .card {
@@ -24,8 +22,6 @@
     100% / var(--number-of-cards) - var(--gap) * (var(--number-of-cards) - 1) /
       (var(--number-of-cards))
   );
-
-  border: 2px solid green;
 }
 
 @media only screen and (min-width: 768px) {
@@ -97,6 +93,9 @@
   border-radius: 4px;
   color: #808080;
   border: 1px solid #808080;
+  outline: none;
+
+  transition: border 0.5s ease;
 }
 
 .header__form {
@@ -113,6 +112,20 @@
   color: #fff;
 }
 
+.button:hover {
+  background-color: #6c8cff;
+  transition: background-color 0.5s ease;
+}
+
 .button__load-more {
   margin: 0 auto;
+  transition: border 0.5s ease;
+}
+
+.form__input:hover {
+  border: 1px solid black;
+}
+
+.form__input:focus {
+  border: 1px solid #4e75ff;
 }

@@ -29,10 +29,6 @@
 };
  */
 
-
-
-
-
 export function renderCard(img) {
   const {
     comments,
@@ -46,7 +42,7 @@ export function renderCard(img) {
 
   return `  
         <a href="${largeImageURL}" class="gallery__card card">
-          <img src="${webformatURL}" alt="${tags}" class="card__image" />
+          <img src="${webformatURL}" alt="${tags}" class="card__image" height="200" />
           <ul class="card__info info">
             <li class="info__item">
               <h3 class="info__title">Likes</h3>
